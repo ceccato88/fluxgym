@@ -328,7 +328,7 @@ def download(base_model):
     repo = model["repo"]
 
     # download unet
-    if base_model == "flux-dev" or base_model == "flux-schnell":
+    if base_model == "flux-dev" or base_model == "flux-krea":
         unet_folder = "models/unet"
     else:
         unet_folder = f"models/unet/{repo}"
@@ -440,7 +440,7 @@ def gen_sh(
     model_config = models[base_model]
     model_file = model_config["file"]
     repo = model_config["repo"]
-    if base_model == "flux-dev" or base_model == "flux-schnell":
+    if base_model == "flux-dev" or base_model == "flux-krea":
         model_folder = "models/unet"
     else:
         model_folder = f"models/unet/{repo}"
