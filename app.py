@@ -341,12 +341,12 @@ def download(base_model):
 
     # download vae
     vae_folder = "models/vae"
-    vae_path = os.path.join(vae_folder, "ae.sft")
+    vae_path = os.path.join(vae_folder, "ae.safetensors")
     if not os.path.exists(vae_path):
         os.makedirs(vae_folder, exist_ok=True)
         gr.Info(f"Downloading vae")
         print(f"downloading ae.sft...")
-        hf_hub_download(repo_id="cocktailpeanut/xulf-dev", local_dir=vae_folder, filename="ae.sft")
+        hf_hub_download(repo_id="black-forest-labs/FLUX.1-dev", local_dir=vae_folder, filename="ae.safetensors")
 
     # download clip
     clip_folder = "models/clip"
