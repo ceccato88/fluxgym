@@ -448,8 +448,8 @@ def gen_sh(
     pretrained_model_path = resolve_path(model_path)
 
     clip_path = resolve_path("models/clip/clip_l.safetensors")
-    t5_path = resolve_path("models/clip/t5xxl_fp16.safetensors")
-    ae_path = resolve_path("models/vae/ae.sft")
+    t5_path   = resolve_path("models/clip/t5xxl_fp16.safetensors")
+    ae_path   = resolve_path("models/vae/ae.safetensors")
     sh = f"""accelerate launch {line_break}
   --mixed_precision bf16 {line_break}
   --num_cpu_threads_per_process 1 {line_break}
@@ -477,7 +477,7 @@ def gen_sh(
   --max_train_epochs {max_train_epochs} {line_break}
   --save_every_n_epochs {save_every_n_epochs} {line_break}
   --dataset_config {resolve_path(f"outputs/{output_name}/dataset.toml")} {line_break}
-  --output_dir {output_dir} {line_break}
+  --output_dir {resolve_path(f"outputs/{output_name}")} {line_break}
   --output_name {output_name} {line_break}
   --timestep_sampling {timestep_sampling} {line_break}
   --discrete_flow_shift 3.1582 {line_break}
